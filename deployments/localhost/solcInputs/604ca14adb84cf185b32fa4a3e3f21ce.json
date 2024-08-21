@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Migrations.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.21 <0.8.0;\r\n\r\ncontract Migrations {\r\n    address public owner;\r\n    uint256 public last_completed_migration;\r\n\r\n    modifier restricted() {\r\n        if (msg.sender == owner) _;\r\n    }\r\n\r\n    constructor()  {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function setCompleted(uint256 completed) public restricted {\r\n        last_completed_migration = completed;\r\n    }\r\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
